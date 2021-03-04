@@ -3,6 +3,7 @@ import smtplib
 from email.message import EmailMessage
 import threading
 import sys
+import os
 import config
 
 
@@ -27,7 +28,7 @@ def check():
                 s.login(config.gmail, config.password)
                 s.send_message(msg)
                 s.quit()
-                sys.exit()
+                os._exit(1)
             else:
                 print("No appointments")
 
